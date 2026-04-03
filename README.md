@@ -3,6 +3,8 @@
 This project is a simple Point of Sale (POS) backend API built with Spring Boot.
 It manages products, creates orders, records order-sale lines, and exposes REST endpoints
 for product, order, and sales operations.
+The repository also includes a lightweight static frontend in `front/` (HTML + jQuery + Bootstrap)
+for dashboard, product management, and sales views.
 
 ## Tech Stack
 
@@ -11,6 +13,7 @@ for product, order, and sales operations.
 - Spring Data JPA
 - MySQL
 - Lombok
+- HTML + jQuery + Bootstrap (frontend pages in `front/`)
 
 ## Project Structure
 
@@ -19,6 +22,7 @@ for product, order, and sales operations.
 - `entity`: JPA entities (`products`, `orders`, `sales`)
 - `repository`: Spring Data JPA repositories
 - `dto`: request DTOs such as `OrderDto`
+- `front`: static frontend pages (`index.html`, `products.html`, `sales.html`)
 
 ## Main Features
 
@@ -28,6 +32,7 @@ for product, order, and sales operations.
 - Create sales records linked to each order item
 - Retrieve all orders
 - Retrieve all sales or sales by order id
+- Use a simple browser-based frontend for POS operations
 
 ## API Endpoints
 
@@ -49,6 +54,17 @@ for product, order, and sales operations.
 
 - `GET /sales/get-sales`
 - `GET /sales/get-by-order-id?orderId={id}`
+
+## Frontend
+
+The `front/` folder contains three static pages:
+
+- `front/index.html`: dashboard and order checkout screen
+- `front/products.html`: products listing and CRUD UI
+- `front/sales.html`: orders and sales details UI
+
+These pages use AJAX calls to `http://localhost:8081` and are intended to be opened
+in a browser while the backend application is running.
 
 ## Configuration
 
